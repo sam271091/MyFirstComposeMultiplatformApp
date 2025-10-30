@@ -1,14 +1,15 @@
 package org.example.project.pojo
 
 data class Book(
+    val id: String,
     val title: String,
-    val description: String?,
     val imageUrl: String,
-    val languages: List<String>,
     val authors: List<String>,
+    val description: String?,
+    val languages: List<String>,
     val firstPublishYear: String?,
-    val ratingsAverage: Double?,
-    val ratingsCount: Int?,
-    val numPagesMedian: Int?,
+    val averageRating: Double?,
+    val ratingCount: Int?,
+    val numPages: Int?,
     val numEditions: Int
 )
