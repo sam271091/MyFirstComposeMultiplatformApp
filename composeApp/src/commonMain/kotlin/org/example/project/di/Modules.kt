@@ -3,6 +3,7 @@ package org.example.project.di
 import androidx.sqlite.driver.bundled.BundledSQLiteDriver
 import org.example.project.Screens.BookList.BookListViewModel
 import org.example.project.core.data.HttpClientFactory
+import org.example.project.database.DatabaseFactory
 //import org.example.project.database.DatabaseFactory
 import org.example.project.database.FavoriteBookDatabase
 import org.example.project.network.KtorRemoteBookDataSource
@@ -23,11 +24,11 @@ val sharedModule = module {
     singleOf(::KtorRemoteBookDataSource).bind<RemoteBookDataSource>()
     singleOf(::DefaultBookRepository).bind<BookRepository>()
 
-//    single {
-//        get<DatabaseFactory>().create()
-//            .setDriver(BundledSQLiteDriver())
-//            .build()
-//    }
+    single {
+        get<DatabaseFactory>().create()
+            .setDriver(BundledSQLiteDriver())
+            .build()
+    }
     single { get<FavoriteBookDatabase>().favoriteBookDao }
 
     viewModelOf(::BookListViewModel)

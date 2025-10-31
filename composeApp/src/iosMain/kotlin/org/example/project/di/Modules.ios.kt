@@ -10,5 +10,5 @@ import org.koin.dsl.module
 actual val platformModule: Module
     get() = module {
         single<HttpClientEngine> { Darwin.create() }
-//        single { DatabaseFactory() }
+        single { DatabaseFactory() }
     }
